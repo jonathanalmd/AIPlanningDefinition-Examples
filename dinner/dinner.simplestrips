@@ -1,0 +1,45 @@
+Initial conditions: 
+    (and 
+        (garbage) 
+        (clean) 
+        (quiet)
+    )
+
+Goal: 
+    (and 
+        (dinner)
+        (presente) 
+        (not(garbage))
+    )
+
+Actions:
+    cook
+        :precondition 
+            (clean)
+        :effect 
+            (dinner)
+
+    wrap   
+        :precondition 
+            (quiet)
+        :effect 
+            (presente)
+
+    carry
+        :precondition 
+        :effect 
+            (and
+                (not(garbage))
+                (not(clean))
+            )
+
+    dolly
+        :precondition 
+        :effect 
+            (and 
+                (not(garbage)) 
+                (not(quiet))
+            )
+
+
+

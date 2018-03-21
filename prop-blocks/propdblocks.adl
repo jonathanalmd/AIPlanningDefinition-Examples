@@ -1,0 +1,94 @@
+init (
+    handsFree() 
+    AND
+    BonA() 
+    AND
+    ConB()
+    AND
+    ontableA()
+    AND
+    ontableB()
+    AND
+    ontableC()
+)
+
+goal (
+    BonC()
+    AND
+    AonB()
+)
+
+
+action (
+    pickA(),
+    precond: ontableA() AND handsFree() AND !BonA() AND !ConA() AND !holdingA()
+    effect: holdingA() AND !ontableA() AND !AonB() AND !AonC() AND !handsFree()
+)
+action (
+    pickB(),
+    precond: ontableB() AND handsFree() AND !AonB() AND !ConB() AND !holdingB()
+    effect: holdingB() AND !ontableB() AND !BonA() AND !BonC() AND !handsFree()
+)
+action (
+    pickC(),
+    precond: ontableC() AND handsFree() AND !AonC() AND !ConC() AND !holdingC()
+    effect: holdingC() AND !ontableC() AND !ConA() AND !ConB() AND !handsFree()
+)
+
+action (
+    putDownA(),
+    precond: holdingA()
+    effect: ontableA() AND handsFree() AND !holdingA()
+)
+
+action (
+    putDownB(),
+    precond: holdingB()
+    effect: ontableB() AND handsFree() AND !holdingB()
+)
+
+action (
+    putDownC(),
+    precond: holdingC()
+    effect: ontableC() AND handsFree() AND !holdingC()
+)
+
+
+
+action (
+    stackAonB(),
+    precond: holdingA() AND ontableB() AND !ConB() AND !AonB() AND !ontableA()
+    effect: ontableA() AND handsFree() AND AonB() AND !holdingA()
+)
+
+action (
+    stackAonC(),
+    precond: holdingA() AND ontableC() AND !BonC() AND !AoC() AND !ontableA()
+    effect: ontableA() AND handsFree() AND AonC() AND !holdingA()
+)
+
+action (
+    stackBonA(),
+    precond: holdingB() AND ontableA() AND !ConA() AND !BonA() AND !ontableB()
+    effect: ontableB() AND handsFree() AND BonA() AND !holdingB()
+)
+
+action (
+    stackBonC(),
+    precond: holdingB() AND ontableC() AND !BonC() AND !AonC() AND !ontableB()
+    effect: ontableB() AND handsFree() AND BonC() AND !holdingB()
+)
+
+action (
+    stackConA(),
+    precond: holdingC() AND ontableA() AND !ConA() AND !ConB() AND !ontableB()
+    effect: ontableC() AND handsFree() AND ConA() AND !holdingC()
+)
+
+action (
+    stackConB(),
+    precond: holdingC() AND ontableB() AND !ConB() AND !AonB() AND !ontableC()
+    effect: ontableC() AND handsFree() AND ConB() AND !holdingC()
+)
+
+

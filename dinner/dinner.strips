@@ -1,0 +1,26 @@
+Initial state: 
+    garbage (),
+    clean(),
+    quiet()
+
+Goal state:
+    dinner(),
+    present(),
+    !garbage()
+
+Actions:
+    cook()
+    Preconditions: clean()
+    Effect: dinner()
+
+    wrap()
+    Preconditions: quiet()
+    Effect: present()
+
+    carry()
+    Preconditions: garbage()
+    Effect: !garbage(), !clean()
+    
+    dolly()
+    Preconditions: garbage()
+    Effect: !garbage(), !quiet()

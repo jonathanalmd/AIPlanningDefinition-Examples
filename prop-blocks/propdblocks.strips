@@ -1,0 +1,86 @@
+Initial state:
+	handsFree(),
+	BonA(),
+	ConB(),
+	ontableA(),
+	ontableB(),
+	ontableC()
+
+Goal state:
+	BonC(),
+	AonB()
+
+Actions:
+
+    pickA()
+    Preconditions: 
+    	ontableA(), handsFree(), !BonA(), !ConA(), !holdingA()
+    Effect: 
+    	holdingA(), !ontableA(), !AonB(), !AonC(), !handsFree()
+
+    pickB()
+    Preconditions: 
+    	ontableB(), handsFree(), !AonB(), !ConB(), !holdingB()
+    Effect: 
+    	holdingB(), !ontableB(), !BonA(), !BonC(), !handsFree()
+
+    pickC()
+    Preconditions: 
+    	ontableC(), handsFree(), !AonC(), !ConC(), !holdingC()
+    Effect: 
+    	holdingC(), !ontableC(), !ConA(), !ConB(), !handsFree()
+
+    putDownA()
+    Preconditions: 
+    	holdingA()
+    Effect: 
+    	ontableA(), handsFree(), !holdingA()
+
+    putDownB()
+    Preconditions: 
+    	holdingB()
+    Effect: 
+    	ontableB(), handsFree(), !holdingB()
+
+    putDownC()
+    Preconditions: 
+    	holdingC()
+    Effect: 
+    	ontableC(), handsFree(), !holdingC()
+
+    stackAonB()
+    Preconditions: 
+    	holdingA(), ontableB(), !ConB(), !AonB(), !ontableA()
+    Effect: 
+    	ontableA(), handsFree(), AonB(), !holdingA()
+
+    stackAonC()
+    Preconditions: 
+    	holdingA(), ontableC(), !BonC(), !AoC(), !ontableA()
+    Effect: 
+    	ontableA(), handsFree(), AonC(), !holdingA()
+
+    stackBonA()
+    Preconditions: 
+    	holdingB(), ontableA(), !ConA(), !BonA(), !ontableB()
+    Effect: 
+    	ontableB(), handsFree(), BonA(), !holdingB()
+
+    stackBonC()
+    Preconditions:
+    	holdingB(), ontableC(), !BonC(), !AonC(), !ontableB()
+    Effect: 
+    	ontableB(), handsFree(), BonC(), !holdingB()
+
+    stackConA()
+    Preconditions: 
+    	holdingC(), ontableA(), !ConA(), !ConB(), !ontableB()
+    Effect: 
+    	ontableC(), handsFree(), ConA(), !holdingC()
+
+    stackConB()
+    Preconditions: 
+    	holdingC(), ontableB(), !ConB(), !AonB(), !ontableC()
+    Effect: 
+    	ontableC(), handsFree(), ConB(), !holdingC()
+

@@ -1,0 +1,52 @@
+
+init(
+    garbage () 
+    AND
+    clean()
+    and
+    quiet()
+)
+
+goal (
+    dinner() and present() and !garbage()
+)
+
+action (
+    cook(),
+    precond: clean()
+    effect: dinner()
+)
+
+action (
+    wrap(),
+    precond: quiet()
+    effect: present()
+)
+
+action (
+    carry(),
+    precond: garbage()
+    effect: !garbage() and !clean()
+
+)
+
+action (
+    dolly(),
+    precond: garbage()
+    effect: !garbage() and !quiet()
+
+)
+
+action (
+    dirty(),
+    precond: !garbage() and quiet()
+    effect: garbage() and !quiet()
+
+)
+
+
+
+
+
+
+

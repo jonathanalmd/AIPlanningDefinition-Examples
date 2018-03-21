@@ -1,0 +1,65 @@
+Initial state: 
+    republic()
+
+Goal state:
+    destroyedDeathStar()
+
+Actions:
+    order66()
+    Preconditions: 
+        republic(), !order66()
+    Effect: 
+        order66(), empire(), darthVader(), !republic()
+
+
+    buildDeathStar()
+    Preconditions: 
+        darthVader(), !deathStar()
+    Effect: 
+        deathStar()
+
+    rebelion()
+    Preconditions: 
+        !hope()
+    Effect: 
+        hope()
+
+    organizeSquad()
+    Preconditions: 
+        hope(), !rogueOne()
+    Effect: 
+        rogueOne()
+
+    getSecretTape()
+    Preconditions: 
+        hope(), rogueOne(), !hasSecretData()
+    Effect: 
+        hasSecretData(), !rogueOne()
+
+    readSecretData()
+    Preconditions: 
+        hasSecretData(), rescuedPrincess()
+    Effect: 
+        interpretedSecretData()
+
+    rescuePrincess()
+    Preconditions: 
+        empire(), darthVader(), deathStar(), !rescuedPrincess()
+    Effect: 
+        rescuedPrincess()
+
+    formRebelAlliance()
+    Preconditions: 
+        empire(), !rebelAlliance()
+    Effect: 
+        rebelAlliance()
+
+    attack()
+    Preconditions: 
+        empire(), rebelAlliance(), deathStar(), interpretedSecretData()
+    Effect: 
+        hope(), destroyedDeathStar(), !deathStar()
+
+
+
+

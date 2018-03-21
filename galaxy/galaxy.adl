@@ -1,0 +1,91 @@
+
+init(
+    republic()
+)
+
+goal (
+    destroyedDeathStar()
+)
+
+action (
+    order66(),
+    precond: 
+        republic() and !order66()
+    effect: 
+        order66() and empire() and darthVader() and !republic()
+)
+
+action (
+    buildDeathStar(),
+    precond: 
+        darthVader() and !deathStar()
+    effect: 
+        deathStar()
+)
+
+action (
+    rebelion(),
+    precond: 
+        !hope()
+    effect: 
+        hope()
+)
+
+action (
+    organizeSquad(),
+    precond: 
+        hope() and !rogueOne()
+    effect: 
+        rogueOne()
+)
+
+action (
+    getSecretTape(),
+    precond: 
+        hope() and rogueOne() and !hasSecretData()
+    effect: 
+        hasSecretData() and !rogueOne()
+)
+
+action (
+    readSecretData(),
+    precond: 
+        hasSecretData() and rescuedPrincess()
+    effect: 
+        interpretedSecretData()
+)
+
+action (
+    rescuePrincess(),
+    precond: 
+        empire() and darthVader() and deathStar() and !rescuedPrincess()
+    effect: 
+        rescuedPrincess()
+)
+
+action (
+    formRebelAlliance(),
+    precond: 
+        empire() and !rebelAlliance()
+    effect: 
+        rebelAlliance()
+)
+
+action (
+    attack(),
+    precond: 
+        empire() and rebelAlliance() and deathStar() and interpretedSecretData()
+    effect: 
+        hope() and destroyedDeathStar() and !deathStar()
+)
+
+
+
+
+
+
+
+
+
+
+
